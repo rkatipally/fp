@@ -6,7 +6,6 @@ package com.fp.common;
 import org.apache.http.HttpHost;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,8 +27,7 @@ public class RestTemplateFactory implements FactoryBean<RestTemplate>, Initializ
 
     public void afterPropertiesSet() {
         HttpHost host = new HttpHost("localhost", 8080, "http");
-        restTemplate = new RestTemplate(
-                new HttpComponentsClientHttpRequestFactoryBasicAuth(host));
+//        restTemplate = new RestTemplate(
+//                new HttpComponentsClientHttpRequestFactoryBasicAuth(host));
     }
-}
 }
