@@ -22,4 +22,41 @@ public class DataFeedController {
         dataFeedService.loadCompanies();
         return "Successfully created";
     }
+
+    @RequestMapping(value = "/companyDetails", method = RequestMethod.GET)
+    @ResponseBody
+    public String loadCompanyDetails(){
+        dataFeedService.loadCompanyDetails();
+        return "Successfully created";
+    }
+
+
+    @RequestMapping(value = "/indices", method = RequestMethod.GET)
+    @ResponseBody
+    public String loadIndices(){
+        try {
+            dataFeedService.loadIndices();
+
+
+        }catch (Exception e){
+            return "Failed!";
+
+        }
+        return "Successfully created";
+    }
+
+    @RequestMapping(value = "/owners", method = RequestMethod.GET)
+    @ResponseBody
+    public String loadOwners(){
+
+        try {
+            dataFeedService.loadOwners();
+
+
+        }catch (Exception e){
+            return "Failed!";
+
+        }
+        return "Successfully created";
+    }
 }

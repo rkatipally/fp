@@ -2,6 +2,7 @@ package com.fp.controllers;
 
 import com.fp.dao.CompanyDao;
 import com.fp.models.Company;
+import com.fp.models.CompanyDetails;
 import com.fp.models.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,9 @@ public class CompanyController {
     private CompanyDao companyDao;
 
 
-    @RequestMapping(value = "create", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public String create(@RequestBody Company company){
+    public String createCompany(@RequestBody Company company){
         try{
             companyDao.create(company);
             return "Successfully created";
@@ -33,9 +34,22 @@ public class CompanyController {
         }
     }
 
-    @RequestMapping(value = "createAll", method = RequestMethod.POST)
+
+    @RequestMapping(value = "addDetails", method = RequestMethod.POST)
     @ResponseBody
-    public String createAll(@RequestBody List<Company> companies){
+    public String addDetails(@RequestBody CompanyDetails companyDetails){
+        try{
+            companyDao.addDetails(companyDetails);
+            return "Successfully created";
+
+        }catch (Exception e){
+            return "Creation Failed";
+        }
+    }
+
+    @RequestMapping(value = "addAll", method = RequestMethod.POST)
+    @ResponseBody
+    public String createCompanyAll(@RequestBody List<Company> companies){
         try{
             companyDao.createAll(companies);
             return "Successfully created";
